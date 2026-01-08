@@ -2,13 +2,14 @@ import { motion } from "motion/react";
 import { navItems } from "@/utils/utils";
 import { useState } from "react";
 import ScrollBar from "./ScrollBar";
+import { Button } from "./ui/button";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
-  const [selectedTab, setSelectedTab] = useState(navItems[0].tab);
-  console.log(selectedTab);
+  const [menuView, setMenuView] = useState(false);
   return (
     <motion.div className="w-full fixed top-0 z-50 rounded-sm">
-      <div className="py-4 w-full flex justify-between items-center backdrop-blur-xl bg-main-background/50">
+      <div className="py-4  w-full flex justify-between items-center backdrop-blur-xl bg-main-background/50">
         <motion.div
           className="text-white pl-4 cursor-pointer"
           whileHover={{ scale: 1.05 }}
@@ -32,14 +33,13 @@ export default function Navbar() {
           </motion.span>
           <span>/&gt;</span>
         </motion.div>
-        <ul className="flex justify-end items-center gap-10 pr-6">
+        <ul className="hidden sm:flex justify-end items-center gap-10 pr-6 ">
           {navItems.map((item) => (
             <motion.li
               key={item.label}
               className="relative text-gray-main-text text-md"
               whileHover={{ color: "#00ffff" }}
               transition={{ duration: 0.3 }}
-              onClick={() => setSelectedTab(item.tab)}
             >
               <a key={item.label} href={item.href}>
                 {item.label}
@@ -47,6 +47,13 @@ export default function Navbar() {
             </motion.li>
           ))}
         </ul>
+        <button
+          type="button"
+          className="md:hidden p-2 text-main-text-color"
+          onClick={() => setMenuView(!menuView)}
+        >
+          {menuView ? <X size={30}></X> : <Menu size={30}></Menu>}
+        </button>
       </div>
       <ScrollBar></ScrollBar>
     </motion.div>

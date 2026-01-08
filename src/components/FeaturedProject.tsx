@@ -12,7 +12,7 @@ export default function FeaturedProject() {
           </h1>
           <div className="h-1 w-40 bg-linear-to-r from-main-text-color to-crimson-main-text rounded-full"></div>
         </div>
-        <div className="text-white gap-3 grid grid-cols-2 grid-rows-2">
+        <div className="text-white gap-3 grid grid-cols-1 md:grid-cols-2 md:grid-rows-2">
           {projects.map((el) => {
             return <ProjectCard key={el.id} item={el}></ProjectCard>;
           })}
