@@ -14,16 +14,18 @@ export default function ProjectCard({ item }: { item: Project }) {
       transition={{ duration: 0.5 }}
       className="glass-card flex flex-col border border-crimson-main-text/20 hover:border-main-text-color/40 transition-all rounded-xl duration-300 group h-full overflow-hidden "
     >
-      <div className="absolute top-6 right-6 category-badge px-4 py-2 rounded-full text-sm font-semibold text-crimson-main-text">
+      <div className="absolute top-4 right-4 md:top-6 md:right-6 category-badge px-3 py-1.5 text-xs   md:px-4 md:py-2 rounded-full md:text-sm font-semibold text-crimson-main-text">
         {item.tag}
       </div>
-      <div className="p-8 flex flex-col h-full">
-        <h1 className="text-3xl font-bold mb-3 mt-6 group-hover:text-main-text-color transition-colors">
+      <div className="px-8 flex flex-col h-full">
+        <h1 className="text-xl md:text-2xl font-bold mb-2 mt-8 md:mb-3 md:mt-6 group-hover:text-main-text-color transition-colors">
           {item.title}
         </h1>
-        <p className=" leading-relaxed mb-6 grow">{item.description}</p>
+        <p className=" leading-relaxed text-sm md:text-base mb-4 md:mb-6 grow">
+          {item.description}
+        </p>
       </div>
-      <div className="flex flex-wrap gap-2 mb-6 px-8">
+      <div className="flex flex-wrap gap-1.5 mb-4 px-8 md:mb-6">
         {/*skills*/}
         {item.tech.map((el, idx) => (
           <Badge
@@ -34,7 +36,7 @@ export default function ProjectCard({ item }: { item: Project }) {
           </Badge>
         ))}
       </div>
-      <ul className="space-y-2 mb-6 text-sm px-8">
+      <ul className="space-y-1.5 md:space-y-2 md:mb-6 px-8 mb-4 text-xs md:text-sm">
         {item.highlights.map((el, idx) => (
           <li
             key={idx}

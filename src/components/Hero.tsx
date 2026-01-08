@@ -46,17 +46,17 @@ export default function Hero() {
             Full-stack developer specializing in AI-powered applications, modern
             web experiences, and scalable architecture.
           </p>
-          <div className=" flex flex-col min-w-full items-center sm:flex-row justify-between max-w-lg gap-4 md:gap-8 text-[14px]">
+          <div className=" flex flex-col w-full md:max-w-fit items-center sm:flex-row justify-between gap-4 md:gap-8 text-[14px]">
             <motion.button
               whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
               type="button"
-              className=" bg-main-text-color w-full cursor-pointer text-main-background neon-glow px-8 py-2 rounded-xl"
+              className=" bg-main-text-color cursor-pointer text-main-background neon-glow px-8 py-2 rounded-xl"
             >
               View Work
             </motion.button>
             <button
               type="button"
-              className=" border w-full border-main-text-color/30 px-8 py-2 rounded-xl hover:bg-main-text-color/10 transition-colors"
+              className=" border border-main-text-color/30 px-8 py-2 rounded-xl hover:bg-main-text-color/10 transition-colors"
             >
               Contact Me
             </button>
