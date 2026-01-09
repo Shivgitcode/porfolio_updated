@@ -2,7 +2,6 @@
 import { Project } from "@/utils/types";
 import { motion } from "motion/react";
 import Link from "next/link";
-import React from "react";
 import { Badge } from "./ui/badge";
 
 export default function ProjectCard({ item }: { item: Project }) {
