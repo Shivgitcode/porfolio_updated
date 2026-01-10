@@ -11,7 +11,7 @@ export default function SkillsCard({ item }: { item: SkillProp }) {
       <div className="flex flex-wrap gap-2">
         {item.skills.map((el, idx) => (
           <Badge
-            className="tech-badge text-sm bg-transparent border border-main-text-color/30 text-main-text-color/90 hover:text-crimson-main-text hover:border-crimson-main-text/50 transition-all cursor-default"
+            className="tech-badge text-xs md:text-sm bg-transparent border border-main-text-color/30 text-main-text-color/90 hover:text-crimson-main-text hover:border-crimson-main-text/50 transition-all cursor-default"
             key={idx}
           >
             {el}

@@ -7,24 +7,24 @@ import { motion } from "motion/react";
 
 export default function Contact() {
   return (
-    <div className=" py-24 w-full" id="contact">
-      <div className=" w-[60%] mx-auto">
+    <div className=" py-16 md:py-24 w-full" id="contact">
+      <div className=" px-4 md:w-[60%] md:mx-auto">
         <div className=" mb-12 text-white text-center">
-          <h1 className="font-bold text-4xl mb-5">
+          <h1 className="font-bold text-3xl md:text-4xl mb-4 md:mb-5">
             <span className="mr-5 text-main-text-color">&gt;</span>Let's Build
             Something
           </h1>
-          <p className=" text-gray-main-text text-lg">
+          <p className=" text-gray-main-text text-sm md:text-base">
             Have a project in mind? Looking for a technical partner? I'd love to
             collaborate.
           </p>
         </div>
         <Card className="text-white mx-auto text-left glass-card max-w-md p-8 border-main-text-color/20 border">
-          <form className="space-y-4" action="">
+          <form className="space-y-3 md:space-y-4" action="">
             <div className="space-y-2">
               <label
                 htmlFor=""
-                className="text-sm font-mono font-semibold text-main-text-color"
+                className="text-xs md:text-sm font-mono font-semibold text-main-text-color"
               >
                 name
               </label>
@@ -36,7 +36,7 @@ export default function Contact() {
             <div className="space-y-2">
               <label
                 htmlFor=""
-                className="text-sm font-mono font-semibold text-main-text-color"
+                className="text-sm md:text-sm font-mono font-semibold text-main-text-color"
               >
                 email
               </label>
@@ -49,7 +49,7 @@ export default function Contact() {
             <div className="space-y-2">
               <label
                 htmlFor=""
-                className="text-sm font-mono font-semibold text-main-text-color"
+                className="text-xs md:text-sm font-mono font-semibold text-main-text-color"
               >
                 message
               </label>
