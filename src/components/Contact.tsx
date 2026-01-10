@@ -4,8 +4,28 @@ import { Card } from "./ui/card";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { motion } from "motion/react";
+import { api } from "@/utils/axios";
+import { FormEvent, useState } from "react";
 
 export default function Contact() {
+  const [message, setMessage] = useState("");
+  const sendMail = async (e: FormEvent, body: string) => {
+    e.preventDefault();
+    const response = await api.post("/api/send", { body });
+    if (response.status === 200) {
+      const res = await response.data;
+      console.log(res);
+    } else {
+      const res = await response.data;
+      console.log(res);
+    }
+  };
+
+  const watchMessage = (input: FormEvent) => {
+    const val = input.target as HTMLInputElement;
+    setMessage(val.value);
+  };
+
   return (
     <div className=" py-16 md:py-24 w-full" id="contact">
       <div className=" px-4 md:w-[60%] md:mx-auto">
@@ -20,7 +40,10 @@ export default function Contact() {
           </p>
         </div>
         <Card className="text-white mx-auto text-left glass-card max-w-md p-8 border-main-text-color/20 border">
-          <form className="flex flex-col gap-6 md:gap-8" action="">
+          <form
+            className="flex flex-col gap-6 md:gap-8"
+            onSubmit={(e) => sendMail(e, message)}
+          >
             <div className="flex flex-col gap-2">
               <label
                 htmlFor=""
@@ -56,6 +79,8 @@ export default function Contact() {
               <Textarea
                 placeholder="Tell me about your project..."
                 className="bg-background/50 border-main-text-color/20 min-h-30 font-mono"
+                value={message}
+                onChange={(e) => watchMessage(e)}
               />
             </div>
             <Button
