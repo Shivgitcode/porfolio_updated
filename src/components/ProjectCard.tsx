@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { Project } from "@/utils/types";
 import { Badge } from "./ui/badge";
 import Link from "next/link";
+import { ExternalLink } from "lucide-react";
 
 export default function ProjectCard({ item }: { item: Project }) {
   return (
@@ -46,9 +47,20 @@ export default function ProjectCard({ item }: { item: Project }) {
           </li>
         ))}
       </ul>
-      <div className="flex gap-6 mt-auto pt-6 border-t border-white/5 px-8 pb-8">
-        <Link href={item.links.live as string}>Live</Link>
-        <Link href={item.links.code as string}>Code</Link>
+      <div className="flex gap-6 mt-auto text-sm md:text-base pt-6 border-t border-white/5 px-8 pb-8">
+        <Link
+          href={item.links.live as string}
+          className=" text-main-text-color flex items-center gap-2 hover:text-crimson-main-text"
+        >
+          Live <ExternalLink className=" h-4 w-4 md:h-6 md:w-6 md:text-base" />
+        </Link>
+        <Link
+          href={item.links.code as string}
+          className=" text-main-text-color flex items-center gap-2 hover:text-crimson-main-text "
+        >
+          Code{" "}
+          <ExternalLink className="text-sm md:text-base h-4 w-4 md:h-6 md:w-6" />
+        </Link>
       </div>
     </motion.div>
   );

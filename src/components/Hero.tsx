@@ -1,7 +1,9 @@
 import { Zap } from "lucide-react";
 import { motion } from "motion/react";
+import { useRouter } from "next/navigation";
 import { TypeAnimation } from "react-type-animation";
 export default function Hero() {
+  const router = useRouter();
   return (
     <div
       id="home"
@@ -50,13 +52,15 @@ export default function Hero() {
             <motion.button
               whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
               type="button"
-              className=" bg-main-text-color cursor-pointer text-main-background neon-glow px-8 py-2 rounded-xl"
+              onClick={() => router.push("#work")}
+              className=" bg-main-text-color cursor-pointer text-main-background neon-glow px-9 md:px-8  py-2 rounded-lg md:rounded-xl"
             >
               View Work
             </motion.button>
             <button
               type="button"
-              className=" border border-main-text-color/30 px-8 py-2 rounded-xl hover:bg-main-text-color/10 transition-colors"
+              onClick={() => router.push("#contact")}
+              className=" border border-main-text-color/30 px-8 py-2 rounded-lg md:rounded-xl hover:bg-main-text-color/10 transition-colors"
             >
               Contact Me
             </button>

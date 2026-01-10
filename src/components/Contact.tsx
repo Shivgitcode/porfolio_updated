@@ -20,8 +20,8 @@ export default function Contact() {
           </p>
         </div>
         <Card className="text-white mx-auto text-left glass-card max-w-md p-8 border-main-text-color/20 border">
-          <form className="space-y-3 md:space-y-4" action="">
-            <div className="space-y-2">
+          <form className="flex flex-col gap-6 md:gap-8" action="">
+            <div className="flex flex-col gap-2">
               <label
                 htmlFor=""
                 className="text-xs md:text-sm font-mono font-semibold text-main-text-color"
@@ -33,7 +33,7 @@ export default function Contact() {
                 className="bg-background/50 border-main-text-color/20 font-mono"
               />
             </div>
-            <div className="space-y-2">
+            <div className="flex flex-col gap-2">
               <label
                 htmlFor=""
                 className="text-sm md:text-sm font-mono font-semibold text-main-text-color"
@@ -46,7 +46,7 @@ export default function Contact() {
                 className="bg-background/50 border-main-text-color/20 font-mono"
               />
             </div>
-            <div className="space-y-2">
+            <div className="flex flex-col gap-2">
               <label
                 htmlFor=""
                 className="text-xs md:text-sm font-mono font-semibold text-main-text-color"
@@ -60,52 +60,52 @@ export default function Contact() {
             </div>
             <Button
               type="submit"
-              className="w-full bg-main-text-color hover:bg-main-text-color/90 text-background font-semibold"
+              className="w-full bg-main-text-color hover:bg-main-text-color/90 text-[#120C1A] font-semibold"
             >
               message
             </Button>
           </form>
         </Card>
-        <div className="mt-16 flex justify-center gap-8">
+        <div className="mt-12 md:mt-16 flex justify-center gap-4 md:gap-8">
           <motion.a
             href="#"
-            className="p-3 rounded-lg bg-main-text-color/10 border border-main-text-color/20 hover:bg-main-text-color/20 hover:text-crimson-main-text transition-all"
+            className="p-2.5 md:p-3 rounded-lg bg-main-text-color/10 border border-main-text-color/20 hover:bg-main-text-color/20 hover:text-crimson-main-text transition-all"
             whileHover={{
               scale: 1.2,
               boxShadow: "0 0 20px rgba(0, 255, 255, 0.5)",
             }}
           >
-            <Github className="w-6 h-6 text-main-text-color" />
+            <Github className="w-5 h-5 md:w-6 md:h-6 text-main-text-color" />
           </motion.a>
           <motion.a
             href="#"
-            className="p-3 rounded-lg bg-main-text-color/10 border border-main-text-color/20 hover:bg-main-text-color/20 hover:text-crimson-main-text transition-all"
+            className="p-2.5 md:p-3 rounded-lg bg-main-text-color/10 border border-main-text-color/20 hover:bg-main-text-color/20 hover:text-crimson-main-text transition-all"
             whileHover={{
               scale: 1.2,
               boxShadow: "0 0 20px rgba(0, 255, 255, 0.5)",
             }}
           >
-            <Twitter className="w-6 h-6 text-main-text-color" />
+            <Twitter className="md:w-6 md:h-6 w-5 h-5 text-main-text-color" />
           </motion.a>
           <motion.a
             href="#"
-            className="p-3 rounded-lg bg-main-text-color/10 border border-main-text-color/20 hover:bg-main-text-color/20 hover:text-crimson-main-text transition-all"
+            className=" p-2.5 md:p-3 rounded-lg bg-main-text-color/10 border border-main-text-color/20 hover:bg-main-text-color/20 hover:text-crimson-main-text transition-all"
             whileHover={{
               scale: 1.2,
               boxShadow: "0 0 20px rgba(0, 255, 255, 0.5)",
             }}
           >
-            <Linkedin className="w-6 h-6 text-main-text-color" />
+            <Linkedin className="md:w-6 md:h-6 h-5 w-5 text-main-text-color" />
           </motion.a>
           <motion.a
             href="#"
-            className="p-3 rounded-lg bg-main-text-color/10 border border-main-text-color/20 hover:bg-main-text-color/20 hover:text-crimson-main-text transition-all"
+            className=" p-2.5 md:p-3 rounded-lg bg-main-text-color/10 border border-main-text-color/20 hover:bg-main-text-color/20 hover:text-crimson-main-text transition-all"
             whileHover={{
               scale: 1.2,
               boxShadow: "0 0 20px rgba(0, 255, 255, 0.5)",
             }}
           >
-            <Mail className="w-6 h-6 text-main-text-color" />
+            <Mail className="md:w-6 md:h-6 w-5 h-5 text-main-text-color" />
           </motion.a>
         </div>
       </div>
