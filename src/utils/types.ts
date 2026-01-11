@@ -26,3 +26,17 @@ export type SkillProp = {
   type: string;
   skills: string[];
 };
+
+export interface ExperienceItemData {
+  company: string;
+  role: string;
+  type: string; // "Full-time" | "Internship" | "Contract" | "Freelance"
+  location: string;
+  startDate: string;
+  endDate: string; // Use "Present" for ongoing
+  isOngoing?: boolean;
+  description: string;
+  responsibilities: string[];
+  technologies: string[];
+  companyUrl?: string;
+}

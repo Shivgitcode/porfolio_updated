@@ -15,6 +15,7 @@
   --color-about-block-text: #94a3b8;
   --color-secondary: hsl(--var(--secondary));
   --color-background: hsl(--var(--background));
+  --color-muted-foreground: #94a3b8;
 }
 
 :root {
@@ -29,7 +30,7 @@
   --secondary: 270 40% 16%;
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --muted-foreground: 215 20% 65%;
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);

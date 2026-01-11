@@ -1,3 +1,5 @@
+import type { ExperienceItemData } from "./types";
+
 export const navItems = [
   { label: "// work", href: "#work", tab: "work" },
   { label: "// education", href: "#education", tab: "education" },
@@ -9,24 +11,23 @@ export const tabs = ["work", "education", "skills", "contact"];
 
 export const projects = [
   {
-    id: "syncverse",
-    title: "SyncVerse",
-    description:
-      "AI-powered veterinary SaaS platform streamlining EMRs, bookings, and billing.",
+    id: "gimi",
+    title: "Gimi",
+    description: "AI-powered commit message generating cli tool",
     highlights: [
       "AI agent auto-fills EMRs from doctor–patient conversations",
       "80% reduction in manual data entry",
       "40–50% API latency improvement",
       "Serving 10,000+ active users",
     ],
-    tech: ["Python", "FastAPI", "AWS", "PostgreSQL", "Terraform", "GenAI"],
+    tech: ["Go", "Cli", "OpenAI", "Gemini", "LLM", "GenAI"],
     tag: "AI/Data",
     role: "Backend Engineer",
     status: "Production",
     index: 0,
     links: {
       live: "/",
-      code: "/",
+      code: "https://github.com/shivgitcode/gimi",
     },
   },
   {
@@ -91,45 +92,41 @@ export const projects = [
   },
 ];
 
-export const educationData = [
+export const experienceData: ExperienceItemData[] = [
   {
-    id: 1,
-    school: "Stanford University",
-    degree: "Bachelor of Science",
-    field: "Computer Science",
-    year: "2018 - 2022",
-    achievements: [
-      "GPA: 3.9/4.0",
-      "Dean's List all semesters",
-      "President of AI/ML Club",
+    company: "Vetic",
+    role: "Software Developer Intern - Backend",
+    type: "Internship",
+    location: "Gurgaon, Haryana",
+    startDate: "Jul 2025",
+    endDate: "Present",
+    isOngoing: true,
+    description:
+      "Worked on scaling the Vetic App and Veterinary Management System (VMS) into a full SaaS platform, handling e-commerce, bookings, EMRs, and clinic operations for thousands of active users.",
+    responsibilities: [
+      "Developed and scaled the Vetic App and Veterinary Management System (VMS) into a SaaS platform",
+      "Built an AI agent to auto-fill EMRs from doctor–patient conversations and add prescribed items to the billing cart",
+      "Architected and migrated legacy infrastructure to AWS with VPCs, NAT Gateways, Bastion Hosts, EC2, and RDS",
+      "Optimized cloud infrastructure using Graviton migration, instance rightsizing, and RDS tuning to reduce costs",
+      "Built high-performance FastAPI backend services for bookings, alerts, and e-commerce",
+      "Improved API performance using asyncio, reducing latency by 40–50%",
+      "Automated vaccination recording and EMR summarization using GenAI",
+      "Integrated third-party vendor APIs like MakeMyRadio and TrueIn",
     ],
-    index: 0,
-  },
-  {
-    id: 2,
-    school: "MIT Online",
-    degree: "Professional Certificate",
-    field: "Full Stack Development & Web3",
-    year: "2023",
-    achievements: [
-      "Completed with distinction",
-      "Specialized in blockchain architecture",
-      "Capstone: DeFi Protocol Design",
+    technologies: [
+      "Python",
+      "FastAPI",
+      "AWS",
+      "Terraform",
+      "EC2",
+      "RDS",
+      "VPC",
+      "Redis",
+      "PostgreSQL",
+      "AsyncIO",
+      "GenAI",
     ],
-    index: 1,
-  },
-  {
-    id: 3,
-    school: "Coursera & Udacity",
-    degree: "Specialization Certificates",
-    field: "AI/ML, Cloud Architecture & DevOps",
-    year: "2022 - 2024",
-    achievements: [
-      "TensorFlow Advanced Course",
-      "AWS Solutions Architect",
-      "Kubernetes & Docker Mastery",
-    ],
-    index: 2,
+    companyUrl: "https://vetic.in",
   },
 ];
 

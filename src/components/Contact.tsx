@@ -4,26 +4,38 @@ import { Card } from "./ui/card";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { motion } from "motion/react";
-import { api } from "@/utils/axios";
 import { FormEvent, useState } from "react";
+import { CreateEmailResponseSuccess } from "resend";
+import { sendEmailAction } from "@/action";
 
 export default function Contact() {
-  const [message, setMessage] = useState("");
-  const sendMail = async (e: FormEvent, body: string) => {
-    e.preventDefault();
-    const response = await api.post("/api/send", { body });
-    if (response.status === 200) {
-      const res = await response.data;
-      console.log(res);
-    } else {
-      const res = await response.data;
-      console.log(res);
-    }
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState("");
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
-  const watchMessage = (input: FormEvent) => {
-    const val = input.target as HTMLInputElement;
-    setMessage(val.value);
+  const sendMail = async (e: FormEvent) => {
+    e.preventDefault();
+    setStatus("Sending...");
+    try {
+      const { data, error } = await sendEmailAction(formData.message);
+      if (data) {
+        setStatus(data.toString());
+      }
+      setStatus(error);
+    } catch (error) {
+      console.error(error);
+      setStatus("Failed to send message.");
+    }
   };
 
   return (
@@ -40,56 +52,65 @@ export default function Contact() {
           </p>
         </div>
         <Card className="text-white mx-auto text-left glass-card max-w-md p-8 border-main-text-color/20 border">
-          <form
-            className="flex flex-col gap-6 md:gap-8"
-            onSubmit={(e) => sendMail(e, message)}
-          >
+          <form className="flex flex-col gap-6 md:gap-8" onSubmit={sendMail}>
             <div className="flex flex-col gap-2">
               <label
-                htmlFor=""
+                htmlFor="name"
                 className="text-xs md:text-sm font-mono font-semibold text-main-text-color"
               >
                 name
               </label>
               <Input
+                id="name"
                 placeholder="John Doe"
                 className="bg-background/50 border-main-text-color/20 font-mono"
+                value={formData.name}
+                onChange={handleInputChange}
+                required
               />
             </div>
             <div className="flex flex-col gap-2">
               <label
-                htmlFor=""
+                htmlFor="email"
                 className="text-sm md:text-sm font-mono font-semibold text-main-text-color"
               >
                 email
               </label>
               <Input
+                id="email"
                 type="email"
                 placeholder="john@example.com"
                 className="bg-background/50 border-main-text-color/20 font-mono"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
               />
             </div>
             <div className="flex flex-col gap-2">
               <label
-                htmlFor=""
+                htmlFor="message"
                 className="text-xs md:text-sm font-mono font-semibold text-main-text-color"
               >
                 message
               </label>
               <Textarea
+                id="message"
                 placeholder="Tell me about your project..."
                 className="bg-background/50 border-main-text-color/20 min-h-30 font-mono"
-                value={message}
-                onChange={(e) => watchMessage(e)}
+                value={formData.message}
+                onChange={handleInputChange}
+                required
               />
             </div>
             <Button
               type="submit"
               className="w-full bg-main-text-color hover:bg-main-text-color/90 text-[#120C1A] font-semibold"
+              disabled={status === "Sending..."}
             >
-              message
+              {status === "Sending..." ? "Sending..." : "message"}
             </Button>
           </form>
+          {status && <p className="mt-4 text-center text-sm">{status}</p>}
         </Card>
         <div className="mt-12 md:mt-16 flex justify-center gap-4 md:gap-8">
           <motion.a
