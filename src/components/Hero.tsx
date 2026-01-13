@@ -69,7 +69,7 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className=" absolute left-145 bottom-2 flex flex-col-reverse text-xs items-center gap-2"
+          className=" absolute left-19.5 md:left-125 -bottom-25 md:bottom-2 flex flex-col-reverse text-xs items-center gap-2"
         >
           <Zap className=" text-main-text-color"></Zap>
           <p className="text-[#94A3B8]">Scroll to explore</p>
@@ -77,7 +77,7 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="absolute right-0 bottom-2 hidden md:block"
+          className="absolute right-0 bottom-2 hidden md:hidden lg:hidden xl:block"
         >
           <div className="code-block text-xs opacity-70 hover:opacity-100 transition-opacity">
             <div>{"// build something great"}</div>

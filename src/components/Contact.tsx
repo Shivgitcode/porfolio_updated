@@ -5,8 +5,8 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { motion } from "motion/react";
 import { FormEvent, useState } from "react";
-import { CreateEmailResponseSuccess } from "resend";
 import { sendEmailAction } from "@/action";
+import { toast } from "sonner";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -27,14 +27,17 @@ export default function Contact() {
     e.preventDefault();
     setStatus("Sending...");
     try {
-      const { data, error } = await sendEmailAction(formData.message);
+      const { data, error } = await sendEmailAction(formData);
       if (data) {
-        setStatus(data.toString());
+        toast.success("Message sent successfully!");
+        setStatus("sent");
+        setFormData({ name: "", email: "", message: "" });
+      } else if (error) {
+        toast.error(error);
       }
-      setStatus(error);
     } catch (error) {
       console.error(error);
-      setStatus("Failed to send message.");
+      toast.error("Failed to sent message");
     }
   };
 
@@ -110,11 +113,11 @@ export default function Contact() {
               {status === "Sending..." ? "Sending..." : "message"}
             </Button>
           </form>
-          {status && <p className="mt-4 text-center text-sm">{status}</p>}
         </Card>
         <div className="mt-12 md:mt-16 flex justify-center gap-4 md:gap-8">
           <motion.a
-            href="#"
+            href="https://github.com/Shivgitcode"
+            rel="noopener"
             className="p-2.5 md:p-3 rounded-lg bg-main-text-color/10 border border-main-text-color/20 hover:bg-main-text-color/20 hover:text-crimson-main-text transition-all"
             whileHover={{
               scale: 1.2,
@@ -124,7 +127,8 @@ export default function Contact() {
             <Github className="w-5 h-5 md:w-6 md:h-6 text-main-text-color" />
           </motion.a>
           <motion.a
-            href="#"
+            href="https://www.reddit.com/user/Serious-Dot1431/"
+            rel="noopener"
             className="p-2.5 md:p-3 rounded-lg bg-main-text-color/10 border border-main-text-color/20 hover:bg-main-text-color/20 hover:text-crimson-main-text transition-all"
             whileHover={{
               scale: 1.2,
@@ -134,7 +138,9 @@ export default function Contact() {
             <Twitter className="md:w-6 md:h-6 w-5 h-5 text-main-text-color" />
           </motion.a>
           <motion.a
-            href="#"
+            href="https://www.linkedin.com/in/shivaggarwal2608/"
+            rel="noopener"
+            target="_blank"
             className=" p-2.5 md:p-3 rounded-lg bg-main-text-color/10 border border-main-text-color/20 hover:bg-main-text-color/20 hover:text-crimson-main-text transition-all"
             whileHover={{
               scale: 1.2,
@@ -144,7 +150,8 @@ export default function Contact() {
             <Linkedin className="md:w-6 md:h-6 h-5 w-5 text-main-text-color" />
           </motion.a>
           <motion.a
-            href="#"
+            href="shivneeraj2004@gmail.com"
+            rel="noopener"
             className=" p-2.5 md:p-3 rounded-lg bg-main-text-color/10 border border-main-text-color/20 hover:bg-main-text-color/20 hover:text-crimson-main-text transition-all"
             whileHover={{
               scale: 1.2,
