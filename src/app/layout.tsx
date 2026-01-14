@@ -10,9 +10,11 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Shivansh Portfolio",
+  icons: {
+    icon: "/shiv.jpeg",
+  },
   description: "this is my personal portfolio website",
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
